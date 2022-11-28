@@ -12,6 +12,7 @@
 		CF6119B029269D630002DFA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6119AF29269D630002DFA7 /* Assets.xcassets */; };
 		CF6119B329269D630002DFA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6119B229269D630002DFA7 /* Preview Assets.xcassets */; };
 		CFF46336293516B100736C81 /* Mobiliario.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFF46334293516B100736C81 /* Mobiliario.xcdatamodeld */; };
+		CFF463382935183200736C81 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF463372935183200736C81 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		CF6119AF29269D630002DFA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF6119B229269D630002DFA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFF46335293516B100736C81 /* Mobiliario.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mobiliario.xcdatamodel; sourceTree = "<group>"; };
+		CFF463372935183200736C81 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				CF6119AF29269D630002DFA7 /* Assets.xcassets */,
 				CFF46334293516B100736C81 /* Mobiliario.xcdatamodeld */,
 				CF6119B129269D630002DFA7 /* Preview Content */,
+				CFF463372935183200736C81 /* CoreDataManager.swift */,
 			);
 			path = SwiftCrud_LuisDono;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				CF6119AE29269D620002DFA7 /* ContentView.swift in Sources */,
 				CF6119AC29269D620002DFA7 /* SwiftCrud_LuisDonoApp.swift in Sources */,
+				CFF463382935183200736C81 /* CoreDataManager.swift in Sources */,
 				CFF46336293516B100736C81 /* Mobiliario.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
