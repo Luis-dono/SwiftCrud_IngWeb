@@ -1,88 +1,75 @@
-//
-//  ContentView.swift
-//  SwiftCrud_LuisDono
-//
-//  Created by CCDM16 on 17/11/22.
-//
-
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    let coreDM: CoreDataManager
+    
+    @State var codigo = ""
+    @State var nombre = ""
+    @State var precio = ""
+    @State var existencia = ""
+    @State var categoria = ""
+    @State var newcodigo = ""
+    @State var newnombre = ""
+    @State var newprecio = ""
+    @State var newexistencia = ""
+    @State var newcategoria = ""
+    @State var seleccionado: Mobiliario?
+    @State var prodArray = [Mobiliario]()
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        NavigationView{
+            VStack{
+                NavigationLink(destination: VStack{
+                    TextField("ID", text: self.$newcodigo).multilineTextAlignment(.center)
+                    TextField("Nombre", text: self.$newnombre).multilineTextAlignment(.center)
+                    TextField("precio", text: self.$newprecio).multilineTextAlignment(.center)
+                    TextField("Existencia", text: self.$newexistencia).multilineTextAlignment(.center)
+                    TextField("Categoria", text: self.$newcategoria).multilineTextAlignment(.center)
+
+                    Button("Guardar"){
+                        coreDM.guardarMobiliario(idMobiliario: newcodigo, nombre: newnombre, precio: newprecio, existencia: newexistencia, categoria: newcategoria)
+                        newnombre = ""
+                        newcodigo = ""
+                        newprecio = ""
+                        newexistencia = ""
+                        newcategoria = ""
+                        mostrarProductos()
                     }
+                    }){
+                    Text("Agregar")
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                List{
+                    ForEach(prodArray, id: \.self){
+                        prod in
+                        VStack{
+                            Text(prod.nombre ?? "")
+                        }
+                        .onTapGesture{
+                            seleccionado = prod
+                            codigo = prod.idMobiliario ?? ""
+                        }
+                    }.onDelete(perform: {
+                        indexSet in
+                        indexSet.forEach({ index in
+                        let producto = prodArray[index]
+                            coreDM.borrarMobiliario(mobiliario: producto)
+                        mostrarProductos()
+                        })
+                    })
+                }.padding()
+                    .onAppear(perform: {mostrarProductos()})
             }
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+    func mostrarProductos(){
+            prodArray = coreDM.leerTodosLosProductos()
         }
-    }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView(coreDM: CoreDataManager())
     }
 }
