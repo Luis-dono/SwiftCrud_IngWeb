@@ -12,7 +12,7 @@
 		CF6119B029269D630002DFA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6119AF29269D630002DFA7 /* Assets.xcassets */; };
 		CF6119B329269D630002DFA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6119B229269D630002DFA7 /* Preview Assets.xcassets */; };
 		CF6119B529269D630002DFA7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6119B429269D630002DFA7 /* Persistence.swift */; };
-		CF6119B829269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF6119B629269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodeld */; };
+		CFF46336293516B100736C81 /* Mobiliario.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFF46334293516B100736C81 /* Mobiliario.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		CF6119AF29269D630002DFA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF6119B229269D630002DFA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF6119B429269D630002DFA7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		CF6119B729269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftCrud_LuisDono.xcdatamodel; sourceTree = "<group>"; };
+		CFF46335293516B100736C81 /* Mobiliario.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mobiliario.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 				CF6119AB29269D620002DFA7 /* SwiftCrud_LuisDonoApp.swift */,
 				CF6119AD29269D620002DFA7 /* ContentView.swift */,
 				CF6119AF29269D630002DFA7 /* Assets.xcassets */,
+				CFF46334293516B100736C81 /* Mobiliario.xcdatamodeld */,
 				CF6119B429269D630002DFA7 /* Persistence.swift */,
-				CF6119B629269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodeld */,
 				CF6119B129269D630002DFA7 /* Preview Content */,
 			);
 			path = SwiftCrud_LuisDono;
@@ -145,8 +145,8 @@
 			files = (
 				CF6119B529269D630002DFA7 /* Persistence.swift in Sources */,
 				CF6119AE29269D620002DFA7 /* ContentView.swift in Sources */,
-				CF6119B829269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodeld in Sources */,
 				CF6119AC29269D620002DFA7 /* SwiftCrud_LuisDonoApp.swift in Sources */,
+				CFF46336293516B100736C81 /* Mobiliario.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,13 +349,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CF6119B629269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodeld */ = {
+		CFF46334293516B100736C81 /* Mobiliario.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CF6119B729269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodel */,
+				CFF46335293516B100736C81 /* Mobiliario.xcdatamodel */,
 			);
-			currentVersion = CF6119B729269D630002DFA7 /* SwiftCrud_LuisDono.xcdatamodel */;
-			path = SwiftCrud_LuisDono.xcdatamodeld;
+			currentVersion = CFF46335293516B100736C81 /* Mobiliario.xcdatamodel */;
+			path = Mobiliario.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
