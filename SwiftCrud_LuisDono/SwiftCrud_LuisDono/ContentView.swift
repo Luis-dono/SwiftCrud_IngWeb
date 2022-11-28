@@ -21,12 +21,11 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 NavigationLink(destination: VStack{
-                    TextField("ID", text: self.$newcodigo).multilineTextAlignment(.center)
-                    TextField("Nombre", text: self.$newnombre).multilineTextAlignment(.center)
-                    TextField("precio", text: self.$newprecio).multilineTextAlignment(.center)
-                    TextField("Existencia", text: self.$newexistencia).multilineTextAlignment(.center)
-                    TextField("Categoria", text: self.$newcategoria).multilineTextAlignment(.center)
-
+                    TextField("ID", text: self.$newcodigo).textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("Nombre", text: self.$newnombre).textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("precio", text: self.$newprecio).textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("Existencia", text: self.$newexistencia).textFieldStyle(RoundedBorderTextFieldStyle())
+                    TextField("Categoria", text: self.$newcategoria).textFieldStyle(RoundedBorderTextFieldStyle())
                     Button("Guardar"){
                         coreDM.guardarMobiliario(idMobiliario: newcodigo, nombre: newnombre, precio: newprecio, existencia: newexistencia, categoria: newcategoria)
                         newnombre = ""
