@@ -55,7 +55,7 @@ class CoreDataManager{
 
     func actualizarProducto(mobiliario: Mobiliario){
         let fetchRequest: NSFetchRequest<Mobiliario> = Mobiliario.fetchRequest()
-        let predicate = NSPredicate(format: "ididMobiliario = %@", mobiliario.idMobiliario ?? "")
+        let predicate = NSPredicate(format: "idMobiliario = %@", mobiliario.idMobiliario ?? "")
         fetchRequest.predicate = predicate
 
 

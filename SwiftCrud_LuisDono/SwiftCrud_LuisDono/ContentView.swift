@@ -15,6 +15,9 @@ struct ContentView: View {
     @State var newcategoria = ""
     @State var seleccionado: Mobiliario?
     @State var prodArray = [Mobiliario]()
+    @State var tapFlag = false
+    
+    
 
 
     var body: some View {
@@ -48,6 +51,11 @@ struct ContentView: View {
                         .onTapGesture{
                             seleccionado = prod
                             codigo = prod.idMobiliario ?? ""
+                            nombre = prod.nombre ?? ""
+                            precio = prod.precio ?? ""
+                            existencia = prod.existencia ?? ""
+                            categoria = prod.categoria ?? ""
+                            tapFlag.toggle()
                         }
                     }.onDelete(perform: {
                         indexSet in
@@ -59,6 +67,28 @@ struct ContentView: View {
                     })
                 }.padding()
                     .onAppear(perform: {mostrarProductos()})
+                NavigationLink("",destination: VStack{
+                                    TextField("ID", text: self.$codigo).textFieldStyle(RoundedBorderTextFieldStyle())
+                                    TextField("Nombre", text: self.$nombre).textFieldStyle(RoundedBorderTextFieldStyle())
+                                    TextField("precio", text: self.$precio).textFieldStyle(RoundedBorderTextFieldStyle())
+                                    TextField("Existencia", text: self.$existencia).textFieldStyle(RoundedBorderTextFieldStyle())
+                                    TextField("Categoria", text: self.$categoria).textFieldStyle(RoundedBorderTextFieldStyle())
+
+                                    Button("Actualizar"){
+                                        seleccionado?.idMobiliario = codigo
+                                        seleccionado?.nombre = nombre
+                                        seleccionado?.precio = precio
+                                        seleccionado?.existencia = existencia
+                                        seleccionado?.categoria = categoria
+                                        coreDM.actualizarProducto(mobiliario: seleccionado!)
+                                        nombre = ""
+                                        precio = ""
+                                        existencia = ""
+                                        categoria = ""
+                                        mostrarProductos()
+                                    }
+                                },isActive: $tapFlag)
+                
             }
         }
     }
